@@ -11,7 +11,7 @@ export class LoadPizzas implements Action {
     readonly type = LOAD_PIZZAS;
 }
 
-// export const LoadPizzas = createAction(LOAD_PIZZAS)
+// export const LoadPizzas = createAction('[Products] Load Pizzas');
 
 export class LoadPizzasFail implements Action {
     readonly type = LOAD_PIZZAS_FAIL;
@@ -20,7 +20,7 @@ export class LoadPizzasFail implements Action {
 
 // export const LoadPizzasFail = createAction(
 //     '[Products] Load Pizzas Fail',
-//     props<{ pizzas: any }>()
+//     props<{ products: any }>()
 // );
 
 export class LoadPizzasSuccess implements Action {
@@ -30,7 +30,7 @@ export class LoadPizzasSuccess implements Action {
 
 // export const LoadPizzasFail = createAction(
 //   '[Products] Load Pizzas Fail',
-//   props<{ pizzas: Pizzas[] }>()
+//   props<{ products: Pizza[] }>()
 // );
 
 // action types
