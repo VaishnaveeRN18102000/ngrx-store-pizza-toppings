@@ -24,7 +24,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     environment.production ? [] : StoreDevtoolsModule.instrument(),
-    StoreRouterConnectingModule,
+    StoreRouterConnectingModule.forRoot(),
     AppRoutingModule,
   ],
   providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
