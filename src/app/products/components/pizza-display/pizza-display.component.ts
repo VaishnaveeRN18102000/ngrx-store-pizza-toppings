@@ -41,5 +41,5 @@ export const DROP_ANIMATION = trigger('drop', [
   `,
 })
 export class PizzaDisplayComponent {
-  @Input() pizza: Pizza | undefined;
+  @Input() pizza: Pizza | undefined | null;
 }
