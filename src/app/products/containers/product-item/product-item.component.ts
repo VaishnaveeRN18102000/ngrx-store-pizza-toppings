@@ -7,15 +7,11 @@ import { Observable, exhaustMap, tap } from 'rxjs';
 import * as fromStore from '../../store';
 
 import { Pizza } from '../../models/pizza.model';
-import { PizzasService } from '../../services/pizzas.service';
-
 import { Topping } from '../../models/topping.model';
-import { ToppingsService } from '../../services/toppings.service';
-import { LoadToppings } from '../../store';
-
 
 @Component({
   selector: 'product-item',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['product-item.component.scss'],
   template: `
     <div 
