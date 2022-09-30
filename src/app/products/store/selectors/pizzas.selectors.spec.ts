@@ -1,13 +1,16 @@
 import { StoreModule, Store, combineReducers } from '@ngrx/store';
-import { ROUTER_NAVIGATION } from '@ngrx/router-store';
 
 import { TestBed } from '@angular/core/testing';
-import { Pizza } from '../../models/pizza.model';
+import { Params } from '@angular/router';
 
 import * as fromRoot from '../../../store';
-import * as fromReducers from '../reducers/index';
-import * as fromActions from '../actions/index';
+import * as fromReducers from '../reducers';
+import * as fromActions from '../actions';
 import * as fromSelectors from '../selectors/pizzas.selectors';
+
+import { Pizza } from '../../models/pizza.model';
+import { PizzaState } from '../reducers/pizzas.reducer';
+import { Topping } from '../../models/topping.model';
 
 describe('Pizzas Selectors', () => {
   let store: Store<fromReducers.ProductsState>;
@@ -67,7 +70,7 @@ describe('Pizzas Selectors', () => {
 
   describe('getPizzaState', () => {
     it('should return state of pizza store slice', () => {
-      let result;
+      let result!: PizzaState;
 
       store.select(fromSelectors.getPizzaState).subscribe(value => (result = value));
 
@@ -89,7 +92,7 @@ describe('Pizzas Selectors', () => {
 
   describe('getPizzaEntities', () => {
     it('should return pizzas as entities', () => {
-      let result;
+      let result!: {[id: number]: Pizza};
 
       store.select(fromSelectors.getPizzasEntities).subscribe(value => (result = value));
 
@@ -103,13 +106,13 @@ describe('Pizzas Selectors', () => {
 
   describe('getSelectedPizza', () => {
     it('should return selected pizza as an entity', () => {
-      let result;
-      let params;
+      let result!: Pizza;
+      let params!: Params;
 
       store.dispatch(new fromActions.LoadPizzasSuccess(pizzas));
 
       store.dispatch({
-        type: 'ROUTER_NAVIGATION',
+        type: '@ngrx/router-store/navigation',
         payload: {
           routerState: {
             url: '/products',
@@ -132,7 +135,7 @@ describe('Pizzas Selectors', () => {
 
   describe('getPizzaVisualised', () => {
     it('should return selected pizza composed with selected toppings', () => {
-      let result;
+      let result!: {[id: number]: Pizza, toppings: Topping[]};
       let params;
       const toppings = [
         {
@@ -154,7 +157,7 @@ describe('Pizzas Selectors', () => {
       store.dispatch(new fromActions.VisualiseToppings([11, 9, 6]));
 
       store.dispatch({
-        type: 'ROUTER_NAVIGATION',
+        type: '@ngrx/router-store/navigation',
         payload: {
           routerState: {
             url: '/products',
@@ -175,7 +178,7 @@ describe('Pizzas Selectors', () => {
 
   describe('getAllPizzas', () => {
     it('should return pizzas as an array', () => {
-      let result;
+      let result!: Pizza[];
 
       store.select(fromSelectors.getAllPizzas).subscribe(value => (result = value));
 
@@ -189,7 +192,7 @@ describe('Pizzas Selectors', () => {
 
   describe('getPizzasLoaded', () => {
     it('should return the pizzas loaded state', () => {
-      let result;
+      let result!: boolean;
 
       store
         .select(fromSelectors.getPizzasLoaded)
@@ -205,7 +208,7 @@ describe('Pizzas Selectors', () => {
 
   describe('getPizzasLoading', () => {
     it('should return the pizzas loading state', () => {
-      let result;
+      let result!: boolean;
 
       store.select(fromSelectors.getPizzasLoading).subscribe(value => (result = value));
 

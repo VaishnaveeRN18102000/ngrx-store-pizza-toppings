@@ -40,7 +40,7 @@ describe('ToppingsReducer Selectors', () => {
   
     describe('getToppingEntities', () => {
       it('should return toppings as entities', () => {
-        let result;
+        let result!: {[id: number]: Topping};
   
         store
           .select(fromSelectors.getToppingsEntities)
@@ -56,7 +56,7 @@ describe('ToppingsReducer Selectors', () => {
   
     describe('getSelectedToppings', () => {
       it('should return selected toppings as ids', () => {
-        let result;
+        let result!: number[];
   
         store
           .select(fromSelectors.getSelectedToppings)
@@ -74,7 +74,7 @@ describe('ToppingsReducer Selectors', () => {
   
     describe('getAllToppings', () => {
       it('should return toppings as an array', () => {
-        let result;
+        let result!: Topping[];
   
         store
           .select(fromSelectors.getAllToppings)
@@ -90,7 +90,7 @@ describe('ToppingsReducer Selectors', () => {
   
     describe('getToppingsLoaded', () => {
       it('should return the toppings loaded state', () => {
-        let result;
+        let result!: boolean;
   
         store
           .select(fromSelectors.getToppingsLoaded)
@@ -106,7 +106,7 @@ describe('ToppingsReducer Selectors', () => {
   
     describe('getToppingsLoading', () => {
       it('should return the toppings loading state', () => {
-        let result;
+        let result!: boolean;
   
         store
           .select(fromSelectors.getToppingsLoading)

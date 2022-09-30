@@ -56,7 +56,6 @@ export function reducer(
 
       case fromPizzas.UPDATE_PIZZA_SUCCESS:
       case fromPizzas.CREATE_PIZZA_SUCCESS: {
-        console.log('created pizza::: ', action.payload);
         const pizza = action.payload;
         const entities = {
           ...state.entities,
@@ -71,7 +70,6 @@ export function reducer(
       case fromPizzas.REMOVE_PIZZA_SUCCESS: {
         const pizza = action.payload;
         const { [pizza.id as number]: removedPizza, ...entities} = state.entities;
-        console.log('removed pizza::: ', removedPizza);
         return {
           ...state,
           entities
