@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { of, map, catchError, switchMap } from "rxjs";
 
-import * as toppingsActions from '../actions/toppings.action';
+import * as toppingsActions from '../../../toppings/store/actions/toppings.action';
 import * as fromServices from '../../../toppings/services/toppings.service';
 
 @Injectable()

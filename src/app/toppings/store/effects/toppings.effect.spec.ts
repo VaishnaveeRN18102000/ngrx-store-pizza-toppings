@@ -6,7 +6,7 @@ import { Actions } from '@ngrx/effects';
 import { hot, cold } from 'jasmine-marbles';
 import { Observable, empty, of } from 'rxjs';
 
-import { ToppingsService } from '../../../toppings/services/toppings.service';
+import { ToppingsService } from '../../services/toppings.service';
 import * as fromEffects from './toppings.effect';
 import * as fromActions from '../actions/toppings.action';
 

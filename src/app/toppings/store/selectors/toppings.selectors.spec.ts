@@ -2,11 +2,11 @@ import { TestBed } from "@angular/core/testing";
 import { StoreModule, Store, combineReducers } from "@ngrx/store";
 
 import * as fromRoot from '../../../store/reducers';
-import * as fromReducers from '../reducers';
-import * as fromActions from '../actions';
+import * as fromReducers from '../../../products/store/reducers';
+import * as fromActions from '../../../products/store/actions';
 import * as fromSelectors from '../selectors/toppings.selectors';
 
-import { Topping } from "../../../toppings/models/topping.model";
+import { Topping } from "../../models/topping.model";
 
 describe('ToppingsReducer Selectors', () => {
     let store: Store<fromReducers.ProductsState>;
@@ -44,7 +44,7 @@ describe('ToppingsReducer Selectors', () => {
   
         store
           .select(fromSelectors.getToppingsEntities)
-          .subscribe(value => (result = value));
+          .subscribe((value) => (result = value as {[id: number]: Topping}));
   
         expect(result).toEqual({});
   
@@ -60,7 +60,7 @@ describe('ToppingsReducer Selectors', () => {
   
         store
           .select(fromSelectors.getSelectedToppings)
-          .subscribe(value => (result = value));
+          .subscribe(value => (result = value as number[]));
   
         store.dispatch(new fromActions.LoadToppingsSuccess(toppings));
   
@@ -78,7 +78,7 @@ describe('ToppingsReducer Selectors', () => {
   
         store
           .select(fromSelectors.getAllToppings)
-          .subscribe(value => (result = value));
+          .subscribe(value => (result = value as Topping[]));
   
         expect(result).toEqual([]);
   
@@ -94,7 +94,7 @@ describe('ToppingsReducer Selectors', () => {
   
         store
           .select(fromSelectors.getToppingsLoaded)
-          .subscribe(value => (result = value));
+          .subscribe(value => (result = value as boolean));
   
         expect(result).toEqual(false);
   
@@ -110,7 +110,7 @@ describe('ToppingsReducer Selectors', () => {
   
         store
           .select(fromSelectors.getToppingsLoading)
-          .subscribe(value => (result = value));
+          .subscribe(value => (result = value as boolean));
   
         expect(result).toEqual(false);
   

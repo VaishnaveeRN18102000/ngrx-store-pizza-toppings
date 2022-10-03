@@ -1,6 +1,6 @@
 import { Action, createAction, props } from "@ngrx/store";
 
-import { Topping } from "../../../toppings/models/topping.model";
+import { Topping } from "../../models/topping.model";
 
 export const LOAD_TOPPINGS = '[Products] Load Toppings';
 export const LOAD_TOPPINGS_FAIL = '[Products] Load Toppings Fail';
