@@ -10,7 +10,7 @@ import * as fromSelectors from '../selectors/pizzas.selectors';
 
 import { Pizza } from '../../models/pizza.model';
 import { PizzaState } from '../reducers/pizzas.reducer';
-import { Topping } from '../../models/topping.model';
+import { Topping } from '../../../toppings/models/topping.model';
 
 describe('Pizzas Selectors', () => {
   let store: Store<fromReducers.ProductsState>;

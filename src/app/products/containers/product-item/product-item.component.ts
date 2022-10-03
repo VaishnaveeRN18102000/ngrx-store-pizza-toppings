@@ -7,7 +7,7 @@ import { Observable, exhaustMap, tap } from 'rxjs';
 import * as fromStore from '../../store';
 
 import { Pizza } from '../../models/pizza.model';
-import { Topping } from '../../models/topping.model';
+import { Topping } from '../../../toppings/models/topping.model';
 
 @Component({
   selector: 'product-item',

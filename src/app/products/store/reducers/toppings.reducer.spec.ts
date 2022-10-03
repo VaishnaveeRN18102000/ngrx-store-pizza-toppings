@@ -1,6 +1,6 @@
 import * as fromToppings from './toppings.reducer';
 import * as fromActions from '../actions/toppings.action';
-import { Topping } from '../../models/topping.model';
+import { Topping } from '../../../toppings/models/topping.model';
 
 describe('ToppingsReducer', () => {
   describe('undefined action', () => {

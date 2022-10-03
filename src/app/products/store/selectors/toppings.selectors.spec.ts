@@ -6,7 +6,7 @@ import * as fromReducers from '../reducers';
 import * as fromActions from '../actions';
 import * as fromSelectors from '../selectors/toppings.selectors';
 
-import { Topping } from "../../models/topping.model";
+import { Topping } from "../../../toppings/models/topping.model";
 
 describe('ToppingsReducer Selectors', () => {
     let store: Store<fromReducers.ProductsState>;

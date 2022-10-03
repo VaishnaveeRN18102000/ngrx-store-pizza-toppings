@@ -4,7 +4,7 @@ import { Effect, Actions, ofType } from '@ngrx/effects';
 import { of, map, catchError, switchMap } from "rxjs";
 
 import * as toppingsActions from '../actions/toppings.action';
-import * as fromServices from '../../services/toppings.service';
+import * as fromServices from '../../../toppings/services/toppings.service';
 
 @Injectable()
 export class ToppingsEffects {
