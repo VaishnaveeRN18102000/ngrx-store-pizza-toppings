@@ -1,5 +1,6 @@
 import * as fromToppings from '../actions/toppings.action';
 import { Topping } from '../../models/topping.model';
+import { createReducer, on } from '@ngrx/store';
 
 export interface ToppingsState {
     entities: { [id: number]: Topping };
@@ -73,32 +74,73 @@ export const getToppingsLoaded = (state: ToppingsState) => state.loaded;
 export const getToppingsLoading = (state: ToppingsState) => state.loading;
 export const getSelectedToppings = (state: ToppingsState) => state.selectedToppings;
 
-// export const reducer = createReducer(
-//     intialState,
-//     on(fromToppings.LoadToppings, (state, action) => ({
-//         ...state,
-//         loading: true
-//     })),
-//     on(fromToppings.LoadToppingsSuccess, (state, action) => {
-//         const toppings = action.toppings;
-//         state.entities = toppings.reduce(
-//           (entities: { [id: number]: Topping }, topping: Topping) => {
-//             return{
-//                 ...entities,
-//                 [topping.id as number]: topping,
-//             };
-//           },
-//           {
-//             ...state.entities
-//           }
-//         );
-//         ...state,
-//         loading: false,
-//         loaded: true,
-//     }),
-//     on(fromToppings.LoadToppingsFail, (state, action) => ({
-//         ...state,
-//         loading: false,
-//         loaded: false
-//     }))
-// )
+export const pizzaToppingsReducer = createReducer(
+  initialState,
+  on(
+    fromToppings.pizzaToppingsActions.loadToppings,
+    (state) => ({ ...state, loading: true })
+  ),
+  on(
+    fromToppings.pizzaToppingsActions.loadToppingsSuccess,
+    (state, action) => {
+      const toppings = action.payload;
+      const entities = toppings.reduce(
+        (entities: { [id: number]: Topping }, topping: Topping) => {
+          return{
+              ...entities,
+              [topping.id as number]: topping,
+          };
+        },
+        {
+          ...state.entities
+        }
+      );
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        entities
+      };
+    }
+  ),
+  on(
+    fromToppings.pizzaToppingsActions.loadToppingsFail,
+    (state) => ({ ...state, loaded: false, loading: false })
+  ),
+  on(
+    fromToppings.pizzaToppingsActions.visualiseToppings,
+    (state, action) => {
+      const selectedToppings = action.payload;
+      return {
+        ...state,
+        selectedToppings
+      };
+    }
+  ),
+  on(
+    fromToppings.pizzaToppingsActions.createToppingSuccess,
+    fromToppings.pizzaToppingsActions.updateToppingSuccess,
+    (state, action) => {
+      const topping = action.payload;
+      const entities = {
+        ...state.entities,
+        [topping.id as number]: topping,
+      };
+      return {
+        ...state,
+        entities
+      }
+    }
+  ),
+  on(
+    fromToppings.pizzaToppingsActions.removeToppingSuccess,
+    (state, action) => {
+      const topping = action.payload;
+      const { [topping.id as number]: removedTopping, ...entities} = state.entities;
+      return {
+        ...state,
+        entities
+      };
+    }
+  )
+);

@@ -1,99 +1,105 @@
 import * as fromToppings from './toppings.action';
 
 describe('Toppings Actions', () => {
-    describe('LoadToppings Actions', () => {
-        describe('LoadToppings', () => {
+    describe('loadToppings Actions', () => {
+        describe('loadToppings', () => {
             it('should create an action', () => {
-                const action = new fromToppings.LoadToppings();
+                const action = fromToppings.pizzaToppingsActions.loadToppings();
 
                 expect({ ...action }).toEqual({
                     type: fromToppings.LOAD_TOPPINGS
                 });
             });
         });
-        describe('LoadToppingsFail', () => {
+        describe('loadToppingsFail', () => {
             it('should create an action', () => {
-                const payload = { message: 'Load Error '};
-                const action = new fromToppings.LoadToppingsFail(payload);
+                const payload = { payload: 'Load Error '};
+                const action = fromToppings.pizzaToppingsActions.loadToppingsFail(payload);
 
                 expect({ ...action }).toEqual({
-                    type: fromToppings.LOAD_TOPPINGS_FAIL,
-                    payload
+                  type: fromToppings.LOAD_TOPPINGS_FAIL,
+                  payload
                 });
             });
         });
-        describe('LoadToppingsSuccess', () => {
-            it('should create an action', () => {
-                const payload = [
-                    {
-                      "id": 1,
-                      "name": "anchovy"
-                    },
-                    {
-                      "id": 2,
-                      "name": "bacon"
-                    },
-                    {
-                      "id": 3,
-                      "name": "basil"
-                    },
-                    {
-                      "id": 4,
-                      "name": "chili"
-                    },
-                    {
-                      "id": 5,
-                      "name": "mozzarella"
-                    },
-                    {
-                      "id": 6,
-                      "name": "mushroom"
-                    },
-                    {
-                      "id": 7,
-                      "name": "olive"
-                    },
-                    {
-                      "id": 8,
-                      "name": "onion"
-                    },
-                    {
-                      "id": 9,
-                      "name": "pepper"
-                    },
-                    {
-                      "id": 10,
-                      "name": "pepperoni"
-                    },
-                    {
-                      "id": 11,
-                      "name": "sweetcorn"
-                    },
-                    {
-                      "id": 12,
-                      "name": "tomato"
-                    }
-                ];
-                const action = new fromToppings.LoadToppingsSuccess(payload);
+        // describe('loadToppingsSuccess', () => {
+        //     it('should create an action', () => {
+        //         const payload = {
+        //           payload: [
+        //             {
+        //               "id": 1,
+        //               "name": "anchovy"
+        //             },
+        //             {
+        //               "id": 2,
+        //               "name": "bacon"
+        //             },
+        //             {
+        //               "id": 3,
+        //               "name": "basil"
+        //             },
+        //             {
+        //               "id": 4,
+        //               "name": "chili"
+        //             },
+        //             {
+        //               "id": 5,
+        //               "name": "mozzarella"
+        //             },
+        //             {
+        //               "id": 6,
+        //               "name": "mushroom"
+        //             },
+        //             {
+        //               "id": 7,
+        //               "name": "olive"
+        //             },
+        //             {
+        //               "id": 8,
+        //               "name": "onion"
+        //             },
+        //             {
+        //               "id": 9,
+        //               "name": "pepper"
+        //             },
+        //             {
+        //               "id": 10,
+        //               "name": "pepperoni"
+        //             },
+        //             {
+        //               "id": 11,
+        //               "name": "sweetcorn"
+        //             },
+        //             {
+        //               "id": 12,
+        //               "name": "tomato"
+        //             }
+        //         ]
+        //       };
+        //       const action = fromToppings.pizzaToppingsActions.loadToppingsSuccess(payload);
 
-                expect({ ...action }).toEqual({
-                    type: fromToppings.LOAD_TOPPINGS_SUCCESS,
-                    payload
-                });
-            });
-        });
+        //       expect({ ...action }).toEqual({
+        //           type: fromToppings.LOAD_TOPPINGS_SUCCESS,
+        //           payload
+        //       });
+        //     });
+        // });
     });
 
-    describe('VisualiseToppings Actions', () => {
-        describe('VisualiseToppings', () => {
-            it('should create an action', () => {
-                const action = new fromToppings.VisualiseToppings([1, 2, 3]);
+    // describe('VisualiseToppings Actions', () => {
+    //     describe('VisualiseToppings', () => {
+    //         it('should create an action', () => {
+    //           const payload = {
+    //             payload: [1, 2, 3]
+    //           };
 
-                expect({ ...action }).toEqual({
-                    type: fromToppings.VISUALISE_TOPPINGS,
-                    payload: [1, 2, 3]
-                });
-            })
-        });
-    });
+    //           const action = fromToppings.pizzaToppingsActions.visualiseToppings(payload);
+
+    //           expect({ ...action }).toEqual({
+    //             payload,
+    //             type: fromToppings.VISUALISE_TOPPINGS
+    //           });
+    //         })
+    //     });
+    // });
 });

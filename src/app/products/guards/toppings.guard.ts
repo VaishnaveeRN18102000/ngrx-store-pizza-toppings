@@ -21,7 +21,7 @@ export class ToppingssGuard implements CanActivate {
         return this.store.select(fromStore.getToppingsLoaded).pipe(
             tap(loaded => {
                 if(!loaded){
-                    this.store.dispatch(new fromStore.LoadToppings());
+                    this.store.dispatch(fromStore.pizzaToppingsActions.loadToppings());
                 }
             }),
             filter(loaded => loaded),

@@ -153,8 +153,8 @@ describe('Pizzas Selectors', () => {
       ];
 
       store.dispatch(new fromActions.LoadPizzasSuccess(pizzas));
-      store.dispatch(new fromActions.LoadToppingsSuccess(toppings));
-      store.dispatch(new fromActions.VisualiseToppings([11, 9, 6]));
+      store.dispatch(fromActions.pizzaToppingsActions.loadToppingsSuccess({ payload: toppings }));
+      store.dispatch(fromActions.pizzaToppingsActions.visualiseToppings({ payload: [11, 9, 6] }));
 
       store.dispatch({
         type: '@ngrx/router-store/navigation',
