@@ -7,7 +7,7 @@ describe('ToppingsReducer', () => {
     it('should return the default state', () => {
       const { initialState } = fromToppings;
       const action = {} as any;
-      const state = fromToppings.pizzaToppingsReducer(undefined, action);
+      const state = fromToppings.reducer(undefined, action);
 
       expect(state).toBe(initialState);
     });
@@ -16,8 +16,8 @@ describe('ToppingsReducer', () => {
   describe('LOAD_TOPPINGS action', () => {
     it('should set loading to true', () => {
       const { initialState } = fromToppings;
-      const action = fromActions.pizzaToppingsActions.loadToppings();
-      const state = fromToppings.pizzaToppingsReducer(initialState, action);
+      const action = fromActions.ToppingsAction.loadToppings();
+      const state = fromToppings.reducer(initialState, action);
 
       expect(state.loading).toEqual(true);
       expect(state.loaded).toEqual(false);
@@ -38,8 +38,8 @@ describe('ToppingsReducer', () => {
         3: toppings[2],
       };
       const { initialState } = fromToppings;
-      const action = fromActions.pizzaToppingsActions.loadToppingsSuccess({ payload: toppings });
-      const state = fromToppings.pizzaToppingsReducer(initialState, action);
+      const action = fromActions.ToppingsAction.loadToppingsSuccess({ payload: toppings });
+      const state = fromToppings.reducer(initialState, action);
 
       expect(state.loaded).toEqual(true);
       expect(state.loading).toEqual(false);
@@ -50,16 +50,16 @@ describe('ToppingsReducer', () => {
   describe('LOAD_TOPPINGS_FAIL action', () => {
     it('should return the initial state', () => {
       const { initialState } = fromToppings;
-      const action = fromActions.pizzaToppingsActions.loadToppingsFail({ payload: {} });
-      const state = fromToppings.pizzaToppingsReducer(initialState, action);
+      const action = fromActions.ToppingsAction.loadToppingsFail({ payload: {} });
+      const state = fromToppings.reducer(initialState, action);
 
       expect(state).toEqual(initialState);
     });
     it('should return the previous state', () => {
       const { initialState } = fromToppings;
       const previousState = { ...initialState, loading: true };
-      const action = fromActions.pizzaToppingsActions.loadToppingsFail({ payload: {} });
-      const state = fromToppings.pizzaToppingsReducer(previousState, action);
+      const action = fromActions.ToppingsAction.loadToppingsFail({ payload: {} });
+      const state = fromToppings.reducer(previousState, action);
 
       expect(state).toEqual(initialState);
     });
@@ -68,8 +68,8 @@ describe('ToppingsReducer', () => {
   describe('VISUALISE_TOPPINGS action', () => {
     it('should set an array of number ids', () => {
       const { initialState } = fromToppings;
-      const action = fromActions.pizzaToppingsActions.visualiseToppings({ payload: [1, 5, 9] });
-      const state = fromToppings.pizzaToppingsReducer(initialState, action);
+      const action = fromActions.ToppingsAction.visualiseToppings({ payload: [1, 5, 9] });
+      const state = fromToppings.reducer(initialState, action);
 
       expect(state.selectedToppings).toEqual([1, 5, 9]);
     });

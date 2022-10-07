@@ -54,8 +54,8 @@ describe('ToppingsEffects', () => {
 
   describe('loadTopping$', () => {
     it('should return a collection from loadToppingsSuccess', () => {
-      const action = fromActions.pizzaToppingsActions.loadToppings();
-      const completion = fromActions.pizzaToppingsActions.loadToppingsSuccess({ payload: toppings });
+      const action = fromActions.ToppingsAction.loadToppings();
+      const completion = fromActions.ToppingsAction.loadToppingsSuccess({ payload: toppings });
 
       actions$.stream = hot('-a', { a: action });
       const expected = cold('-b', { b: completion });
@@ -66,8 +66,8 @@ describe('ToppingsEffects', () => {
 
   describe('createTopping$', () => {
     it('should create a topping', () => {
-      const action = fromActions.pizzaToppingsActions.createTopping({ payload: toppings[0] });
-      const completion = fromActions.pizzaToppingsActions.createToppingSuccess({ payload: toppings[0] });
+      const action = fromActions.ToppingsAction.createTopping({ payload: toppings[0] });
+      const completion = fromActions.ToppingsAction.createToppingSuccess({ payload: toppings[0] });
 
       actions$.stream = hot('-a', { a: action });
       const expected = cold('-b', { b: completion });
@@ -78,8 +78,8 @@ describe('ToppingsEffects', () => {
 
   describe('updateTopping$', () => {
     it('should update a topping', () => {
-      const action = fromActions.pizzaToppingsActions.updateTopping({ payload: toppings[0] });
-      const completion = fromActions.pizzaToppingsActions.updateToppingSuccess({ payload: toppings[0] });
+      const action = fromActions.ToppingsAction.updateTopping({ payload: toppings[0] });
+      const completion = fromActions.ToppingsAction.updateToppingSuccess({ payload: toppings[0] });
 
       actions$.stream = hot('-a', { a: action });
       const expected = cold('-b', { b: completion });
@@ -90,8 +90,8 @@ describe('ToppingsEffects', () => {
 
   describe('removeTopping$', () => {
     it('should delete a topping', () => {
-      const action = fromActions.pizzaToppingsActions.removeTopping({ payload: toppings[0] });
-      const completion = fromActions.pizzaToppingsActions.removeToppingSuccess({ payload: toppings[0] });
+      const action = fromActions.ToppingsAction.removeTopping({ payload: toppings[0] });
+      const completion = fromActions.ToppingsAction.removeToppingSuccess({ payload: toppings[0] });
 
       actions$.stream = hot('-a', { a: action });
       const expected = cold('-b', { b: completion });

@@ -48,7 +48,7 @@ describe('ToppingsReducer Selectors', () => {
   
         expect(result).toEqual({});
   
-        store.dispatch(fromActions.pizzaToppingsActions.loadToppingsSuccess({ payload: toppings }));
+        store.dispatch(fromActions.ToppingsAction.loadToppingsSuccess({ payload: toppings }));
   
         expect(result).toEqual(entities);
       });
@@ -62,11 +62,11 @@ describe('ToppingsReducer Selectors', () => {
           .select(fromSelectors.getSelectedToppings)
           .subscribe(value => (result = value as number[]));
   
-        store.dispatch(fromActions.pizzaToppingsActions.loadToppingsSuccess({ payload: toppings }));
+        store.dispatch(fromActions.ToppingsAction.loadToppingsSuccess({ payload: toppings }));
   
         expect(result).toEqual([]);
   
-        store.dispatch(fromActions.pizzaToppingsActions.visualiseToppings({ payload: [1, 3] }));
+        store.dispatch(fromActions.ToppingsAction.visualiseToppings({ payload: [1, 3] }));
   
         expect(result).toEqual([1, 3]);
       });
@@ -82,7 +82,7 @@ describe('ToppingsReducer Selectors', () => {
   
         expect(result).toEqual([]);
   
-        store.dispatch(fromActions.pizzaToppingsActions.loadToppingsSuccess({ payload: toppings }));
+        store.dispatch(fromActions.ToppingsAction.loadToppingsSuccess({ payload: toppings }));
   
         expect(result).toEqual(toppings);
       });
@@ -98,7 +98,7 @@ describe('ToppingsReducer Selectors', () => {
   
         expect(result).toEqual(false);
   
-        store.dispatch(fromActions.pizzaToppingsActions.loadToppingsSuccess({ payload: [] }));
+        store.dispatch(fromActions.ToppingsAction.loadToppingsSuccess({ payload: [] }));
   
         expect(result).toEqual(true);
       });
@@ -114,7 +114,7 @@ describe('ToppingsReducer Selectors', () => {
   
         expect(result).toEqual(false);
   
-        store.dispatch(fromActions.pizzaToppingsActions.loadToppings());
+        store.dispatch(fromActions.ToppingsAction.loadToppings());
   
         expect(result).toEqual(true);
       });

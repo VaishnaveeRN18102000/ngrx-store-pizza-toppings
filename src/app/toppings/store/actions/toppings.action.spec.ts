@@ -4,7 +4,7 @@ describe('Toppings Actions', () => {
     describe('loadToppings Actions', () => {
         describe('loadToppings', () => {
             it('should create an action', () => {
-                const action = fromToppings.pizzaToppingsActions.loadToppings();
+                const action = fromToppings.ToppingsAction.loadToppings();
 
                 expect({ ...action }).toEqual({
                     type: fromToppings.LOAD_TOPPINGS
@@ -14,7 +14,7 @@ describe('Toppings Actions', () => {
         describe('loadToppingsFail', () => {
             it('should create an action', () => {
                 const payload = { payload: 'Load Error '};
-                const action = fromToppings.pizzaToppingsActions.loadToppingsFail(payload);
+                const action = fromToppings.ToppingsAction.loadToppingsFail(payload);
 
                 expect({ ...action }).toEqual({
                   type: fromToppings.LOAD_TOPPINGS_FAIL,
@@ -76,7 +76,7 @@ describe('Toppings Actions', () => {
         //             }
         //         ]
         //       };
-        //       const action = fromToppings.pizzaToppingsActions.loadToppingsSuccess(payload);
+        //       const action = fromToppings.ToppingsAction.loadToppingsSuccess(payload);
 
         //       expect({ ...action }).toEqual({
         //           type: fromToppings.LOAD_TOPPINGS_SUCCESS,
@@ -93,7 +93,7 @@ describe('Toppings Actions', () => {
     //             payload: [1, 2, 3]
     //           };
 
-    //           const action = fromToppings.pizzaToppingsActions.visualiseToppings(payload);
+    //           const action = fromToppings.ToppingsAction.visualiseToppings(payload);
 
     //           expect({ ...action }).toEqual({
     //             payload,

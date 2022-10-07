@@ -17,8 +17,8 @@ export class ToppingsEffects {
                 return this.toppingsService
                 .getToppings()
                 .pipe(
-                    map(toppings => toppingsActions.pizzaToppingsActions.loadToppingsSuccess({payload: toppings})),
-                    catchError(error => of(toppingsActions.pizzaToppingsActions.loadToppingsFail({ payload: error })))
+                    map(toppings => toppingsActions.ToppingsAction.loadToppingsSuccess({payload: toppings})),
+                    catchError(error => of(toppingsActions.ToppingsAction.loadToppingsFail({ payload: error })))
                 )
             })
         )
@@ -29,8 +29,8 @@ export class ToppingsEffects {
             ofType(toppingsActions.CREATE_TOPPING),
             switchMap(topping => {
                 return this.toppingsService.createTopping(topping).pipe(
-                    map(topping => toppingsActions.pizzaToppingsActions.createToppingSuccess({ payload: topping })),
-                    catchError(error => of(toppingsActions.pizzaToppingsActions.createToppingFail({ payload: error })))
+                    map(topping => toppingsActions.ToppingsAction.createToppingSuccess({ payload: topping })),
+                    catchError(error => of(toppingsActions.ToppingsAction.createToppingFail({ payload: error })))
                 );
             })
         )
@@ -41,8 +41,8 @@ export class ToppingsEffects {
             ofType(toppingsActions.UPDATE_TOPPING),
             switchMap(topping => {
                 return this.toppingsService.updateTopping(topping).pipe(
-                    map(topping => toppingsActions.pizzaToppingsActions.updateToppingSuccess({ payload: topping })),
-                    catchError(error => of(toppingsActions.pizzaToppingsActions.updateToppingFail({ payload: error })))
+                    map(topping => toppingsActions.ToppingsAction.updateToppingSuccess({ payload: topping })),
+                    catchError(error => of(toppingsActions.ToppingsAction.updateToppingFail({ payload: error })))
                 )
             })
         )
@@ -53,8 +53,8 @@ export class ToppingsEffects {
             ofType(toppingsActions.REMOVE_TOPPING),
             switchMap(topping => {
                 return this.toppingsService.removeTopping(topping).pipe(
-                    map(() => toppingsActions.pizzaToppingsActions.removeToppingSuccess({ payload: topping })),
-                    catchError(error => of(toppingsActions.pizzaToppingsActions.removeToppingFail({ payload: error })))
+                    map(() => toppingsActions.ToppingsAction.removeToppingSuccess({ payload: topping })),
+                    catchError(error => of(toppingsActions.ToppingsAction.removeToppingFail({ payload: error })))
                 )
             })
         )

@@ -16,27 +16,26 @@ export const REMOVE_TOPPING = '[Products] Remove Topping';
 export const REMOVE_TOPPING_FAIL = '[Products] Remove Topping Fail';
 export const REMOVE_TOPPING_SUCCESS = '[Products] Remove Topping Success';
 
+// export class LoadToppings implements Action {
+//     readonly type = LOAD_TOPPINGS;
+// }
 
-export class LoadToppings implements Action {
-    readonly type = LOAD_TOPPINGS;
-}
+// export class LoadToppingsFail implements Action {
+//     readonly type = LOAD_TOPPINGS_FAIL;
+//     constructor(public payload: any){}
+// }
 
-export class LoadToppingsFail implements Action {
-    readonly type = LOAD_TOPPINGS_FAIL;
-    constructor(public payload: any){}
-}
+// export class LoadToppingsSuccess implements Action {
+//     readonly type = LOAD_TOPPINGS_SUCCESS;
+//     constructor(public payload: Topping[]){}
+// }
 
-export class LoadToppingsSuccess implements Action {
-    readonly type = LOAD_TOPPINGS_SUCCESS;
-    constructor(public payload: Topping[]){}
-}
+// export class VisualiseToppings implements Action {
+//     readonly type = VISUALISE_TOPPINGS;
+//     constructor(public payload: number[]){}
+// }
 
-export class VisualiseToppings implements Action {
-    readonly type = VISUALISE_TOPPINGS;
-    constructor(public payload: number[]){}
-}
-
-export const pizzaToppingsActions = createActionGroup({
+export const ToppingsAction = createActionGroup({
     source: 'Products',
     events: {
         'Load Toppings': emptyProps(),
@@ -56,4 +55,4 @@ export const pizzaToppingsActions = createActionGroup({
 });
 
 // action types
-export type ToppingsAction = LoadToppings | LoadToppingsFail | LoadToppingsSuccess | VisualiseToppings;
+// export type ToppingsAction = LoadToppings | LoadToppingsFail | LoadToppingsSuccess | VisualiseToppings;
