@@ -5,10 +5,10 @@ import { Store } from "@ngrx/store";
 
 import { Observable, tap, filter, take, switchMap, catchError, of } from "rxjs";
 
-import * as fromStore from '../store';
+import * as fromStore from '../../products/store';
 
 @Injectable()
-export class ToppingssGuard implements CanActivate {
+export class ToppingsGuard implements CanActivate {
     constructor(private store: Store<fromStore.ProductsState>) {}
     canActivate(): Observable<boolean> {
         return this.checkStore().pipe(
@@ -21,7 +21,7 @@ export class ToppingssGuard implements CanActivate {
         return this.store.select(fromStore.getToppingsLoaded).pipe(
             tap(loaded => {
                 if(!loaded){
-                    this.store.dispatch(new fromStore.LoadToppings());
+                    this.store.dispatch(fromStore.ToppingsAction.loadToppings());
                 }
             }),
             filter(loaded => loaded),

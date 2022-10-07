@@ -10,7 +10,7 @@ import * as fromSelectors from '../selectors/pizzas.selectors';
 
 import { Pizza } from '../../models/pizza.model';
 import { PizzaState } from '../reducers/pizzas.reducer';
-import { Topping } from '../../models/topping.model';
+import { Topping } from '../../../toppings/models/topping.model';
 
 describe('Pizzas Selectors', () => {
   let store: Store<fromReducers.ProductsState>;
@@ -153,8 +153,8 @@ describe('Pizzas Selectors', () => {
       ];
 
       store.dispatch(new fromActions.LoadPizzasSuccess(pizzas));
-      store.dispatch(new fromActions.LoadToppingsSuccess(toppings));
-      store.dispatch(new fromActions.VisualiseToppings([11, 9, 6]));
+      store.dispatch(fromActions.ToppingsAction.loadToppingsSuccess({ payload: toppings }));
+      store.dispatch(fromActions.ToppingsAction.visualiseToppings({ payload: [11, 9, 6] }));
 
       store.dispatch({
         type: '@ngrx/router-store/navigation',

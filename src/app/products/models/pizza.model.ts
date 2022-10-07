@@ -1,4 +1,4 @@
-import { Topping } from "./topping.model";
+import { Topping } from "../../toppings/models/topping.model";
 
 export interface Pizza {
     id?: number,

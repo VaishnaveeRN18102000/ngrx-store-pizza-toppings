@@ -12,6 +12,7 @@ import { environment } from "../environments/environment";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { reducers, effects, CustomSerializer } from './store';
+import { ToppingsModule } from './toppings/toppings.module';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
  ? [storeFreeze]
@@ -26,6 +27,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     environment.production ? [] : StoreDevtoolsModule.instrument(),
     StoreRouterConnectingModule.forRoot(),
     AppRoutingModule,
+    ToppingsModule,
   ],
   providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
   bootstrap: [AppComponent],

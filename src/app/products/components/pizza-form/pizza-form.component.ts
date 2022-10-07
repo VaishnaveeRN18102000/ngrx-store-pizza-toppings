@@ -18,7 +18,7 @@ import {
 import { map } from 'rxjs/operators';
 
 import { Pizza } from '../../models/pizza.model';
-import { Topping } from '../../models/topping.model';
+import { Topping } from '../../../toppings/models/topping.model';
 
 @Component({
   selector: 'pizza-form',

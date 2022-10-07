@@ -7,7 +7,7 @@ import { Observable, exhaustMap, tap } from 'rxjs';
 import * as fromStore from '../../store';
 
 import { Pizza } from '../../models/pizza.model';
-import { Topping } from '../../models/topping.model';
+import { Topping } from '../../../toppings/models/topping.model';
 
 @Component({
   selector: 'product-item',
@@ -41,7 +41,7 @@ export class ProductItemComponent implements OnInit {
       tap((pizza: Pizza | null = null) => {
         const pizzaExists = !!(pizza && pizza.toppings);
         const toppings = pizzaExists ? pizza.toppings?.map(topping => topping.id) : [];
-        this.store.dispatch(new fromStore.VisualiseToppings(toppings as number[]));
+        this.store.dispatch(fromStore.ToppingsAction.visualiseToppings({ payload: toppings as number[] }));
       })
     ) as Observable<Pizza>;
     this.toppings$ = this.store.select(fromStore.getAllToppings);
@@ -49,7 +49,7 @@ export class ProductItemComponent implements OnInit {
   }
 
   onSelect(event: number[]) {
-    this.store.dispatch(new fromStore.VisualiseToppings(event));
+    this.store.dispatch(fromStore.ToppingsAction.visualiseToppings({ payload: event }));
   }
 
   onCreate(event: Pizza) {
