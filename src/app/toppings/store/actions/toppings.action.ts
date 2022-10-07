@@ -16,25 +16,6 @@ export const REMOVE_TOPPING = '[Products] Remove Topping';
 export const REMOVE_TOPPING_FAIL = '[Products] Remove Topping Fail';
 export const REMOVE_TOPPING_SUCCESS = '[Products] Remove Topping Success';
 
-// export class LoadToppings implements Action {
-//     readonly type = LOAD_TOPPINGS;
-// }
-
-// export class LoadToppingsFail implements Action {
-//     readonly type = LOAD_TOPPINGS_FAIL;
-//     constructor(public payload: any){}
-// }
-
-// export class LoadToppingsSuccess implements Action {
-//     readonly type = LOAD_TOPPINGS_SUCCESS;
-//     constructor(public payload: Topping[]){}
-// }
-
-// export class VisualiseToppings implements Action {
-//     readonly type = VISUALISE_TOPPINGS;
-//     constructor(public payload: number[]){}
-// }
-
 export const ToppingsAction = createActionGroup({
     source: 'Products',
     events: {
@@ -53,6 +34,3 @@ export const ToppingsAction = createActionGroup({
         'Remove Topping Success': props<{ payload: Topping }>()
     }
 });
-
-// action types
-// export type ToppingsAction = LoadToppings | LoadToppingsFail | LoadToppingsSuccess | VisualiseToppings;
